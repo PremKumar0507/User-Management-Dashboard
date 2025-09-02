@@ -1,0 +1,230 @@
+/* === Base Layout === */
+.app {
+  max-width: 1000px;
+  margin: auto;
+  padding: 16px;
+  font-family: "Inter", Arial, sans-serif;
+  background: #f8f9fa;
+  color: #333;
+  min-height: 100vh;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: 600;
+  color: #222;
+}
+
+/* === User List (Mobile Grid) === */
+.user-list {
+  display: grid;
+  gap: 16px;
+}
+
+/* === User Card === */
+.user-card {
+  padding: 16px;
+  border-radius: 16px;
+  border: 1px solid #eee;
+  background: #fff;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.user-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+}
+
+.user-card.active {
+  border-left: 6px solid #4caf50;
+}
+
+.user-card.inactive {
+  border-left: 6px solid #f44336;
+}
+
+.user-card h2 {
+  margin: 0 0 6px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.user-card p {
+  margin: 3px 0;
+  font-size: 14px;
+  color: #666;
+}
+
+/* === Action Buttons (Mobile Friendly) === */
+.actions {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.actions button {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.actions button:active {
+  transform: scale(0.96);
+}
+
+.actions button:nth-child(1) {
+  background: #007bff;
+  color: white;
+}
+.actions button:nth-child(1):hover {
+  background: #0056b3;
+}
+
+.actions button:nth-child(2) {
+  background: #ffc107;
+  color: #222;
+}
+.actions button:nth-child(2):hover {
+  background: #e0a800;
+}
+
+.actions button:nth-child(3) {
+  background: #f44336;
+  color: white;
+}
+.actions button:nth-child(3):hover {
+  background: #c62828;
+}
+
+/* === Modal === */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: #fff;
+  padding: 20px;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 380px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.modal h3 {
+  margin-top: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.modal label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.modal input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 4px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+/* Modal Buttons */
+.modal-actions {
+  margin-top: 16px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.modal-actions button {
+  padding: 8px 14px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.modal-actions button:first-child {
+  background: #4caf50;
+  color: white;
+}
+.modal-actions button:first-child:hover {
+  background: #388e3c;
+}
+
+.modal-actions button:last-child {
+  background: #6c757d;
+  color: white;
+}
+.modal-actions button:last-child:hover {
+  background: #5a6268;
+}
+
+/* === Skeleton Loader (Modern Mobile) === */
+.skeleton-list {
+  display: grid;
+  gap: 12px;
+}
+
+.skeleton-card {
+  height: 90px;
+  background: linear-gradient(90deg, #eee 25%, #ddd 50%, #eee 75%);
+  border-radius: 16px;
+  animation: shimmer 1.5s infinite;
+  background-size: 200% 100%;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* === Error === */
+.error {
+  color: #f44336;
+  font-weight: bold;
+  text-align: center;
+  margin: 20px 0;
+  font-size: 16px;
+}
+
+/* === Responsive === */
+@media (min-width: 768px) {
+  .user-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  .user-list {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
